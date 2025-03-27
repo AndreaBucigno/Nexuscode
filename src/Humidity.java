@@ -1,36 +1,31 @@
-import java.sql.SQLOutput;
 import java.util.Random;
 
 public class Humidity extends Device {
     private int humidityPercentage;
     private Random random;
 
-    public Humidity(String name, boolean state){
-        super( name , state);
-        this.humidityPercentage = humidityPercentage();
+    public Humidity(String name, boolean state) {
+        super(name, state);
+        this.random = new Random();
+        updateHumidity(); //aggiorna il livello di umidità nella stanza
     }
 
-    public int getHumidityPercentage(){
+    public int getHumidityPercentage() {
         return humidityPercentage;
     }
 
-    public int humidityPercentage(){
-        int humidity;
-        random = new Random();
-        humidity = random.nextInt(100)+1;
+    public void updateHumidity() {
+        this.humidityPercentage = generateHumidity();
+    }
 
-        if(humidity>60){
-            System.out.println("there is too much humidity in the room I turned on the dehumidification system");
-            return 30;
+    private int generateHumidity() {
+        int humidity = random.nextInt(100) + 1;
+
+        if (humidity > 60) {
+            System.out.println("Too much humidity in the room. Dehumidification system activated.");
+            return 30; // 30 è la percentuale ideale per una stanza.
         }
 
         return humidity;
     }
-
-    @Override
-    public void setState(boolean state) {
-        super.setState(state);
-
-    }
-
 }

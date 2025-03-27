@@ -25,7 +25,7 @@ public class Device {
 
     @Override
     public String toString() {
-        return "Device>" +
+        return "Device" +
                 "name:" + name + '\'' +
                 ", state:" + state;
     }
