@@ -30,3 +30,4 @@ public class Device {
                 ", state:" + state;
     }
 }
+

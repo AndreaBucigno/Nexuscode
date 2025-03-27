@@ -42,3 +42,4 @@ public class Voc extends Device {
         super.setState(state);
     }
 }
+

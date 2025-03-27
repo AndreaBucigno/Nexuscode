@@ -42,3 +42,5 @@ public class Temperature extends Device {
 
 }
 
+
+
