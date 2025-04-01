@@ -59,12 +59,24 @@ public class Room {
         }
         for(Device device: devices){
             if(device.getName().equals(deviceName)){
-            devices.remove(device);
+            device.setState(true);
             return true;
         }
     }
     return false;
+    }
 
+    public boolean turnOffForName(String deviceName){
+        if(deviceName==null){
+            return false;
+        }
+        for(Device device : devices){
+            if(device.getName().equals(deviceName)){
+                device.setState(false);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

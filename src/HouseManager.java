@@ -2,24 +2,24 @@ import java.util.HashMap;
 import java.util.Hashtable;
 
 public class HouseManager {
-    private Hashtable<String,Room> room = new Hashtable<>();
+    private Hashtable<String,Room> rooms = new Hashtable<>();
 
     public boolean addRoom(Room t){
         if(t == null || t.getRoomName()==null) {
             return false;
         }
-        if(!room.containsKey(t)){
-            room.put(t.getRoomName(),t);
+        if(!rooms.containsKey(t)){
+            rooms.put(t.getRoomName(),t);
             return true;
         }
         return false;
     }
 
     public boolean removeRoom(String roomName){
-        if(room == null){
+        if(rooms.isEmpty()){
             return false;
         }else{
-            room.remove(roomName);
+            rooms.remove(roomName);
             return true;
         }
     }
@@ -29,7 +29,7 @@ public class HouseManager {
             return null;
         }
 
-        return room.get(roomName);
+        return rooms.get(roomName);
     }
 
 
@@ -68,7 +68,15 @@ public class HouseManager {
     }
 
 
+    @Override
+    public String toString() {
+        String result = "House Manager - Rooms (" + rooms.size() + "):\n";
+        for(String key: rooms.keySet()){
+            result+=rooms.get(key).toString()+"\n\n";
+        }
 
+        return result;
+    }
 
 
 }
