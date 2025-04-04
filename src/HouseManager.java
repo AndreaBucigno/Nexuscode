@@ -72,7 +72,7 @@ public class HouseManager {
     public String toString() {
         String result = "House Manager - Rooms (" + rooms.size() + "):\n";
         for(String key: rooms.keySet()){
-            result+=rooms.get(key).toString()+"\n\n";
+            result += rooms.get(key).toString()+"\n\n";
         }
 
         return result;
