@@ -68,6 +68,7 @@ public class HouseManager {
     }
 
 
+
     @Override
     public String toString() {
         String result = "House Manager - Rooms (" + rooms.size() + "):\n";
