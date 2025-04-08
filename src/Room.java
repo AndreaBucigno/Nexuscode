@@ -4,7 +4,7 @@ public class Room {
     private String roomName;
     private ArrayList<Device> devices = new ArrayList<>();
 
-    public Room(String roomName){
+    public Room(String roomName) {
         this.roomName = roomName;
     }
 
@@ -17,13 +17,19 @@ public class Room {
     }
 
 
-    public void addDevice(Device obj){
-        devices.add(obj);
+    public boolean addDevice(Device obj) {
+        for (Device device : devices) {
+            if (device.getName().equals(obj.getName())) {
+                return false;
+            }
         }
+        devices.add(obj);
+        return true;
+    }
 
-    public boolean removeDevice(String deviceName){
-        for(Device device : devices){
-            if(device.getName().equals(deviceName)){
+    public boolean removeDevice(String deviceName) {
+        for (Device device : devices) {
+            if (device.getName().equals(deviceName)) {
                 devices.remove(device);
                 return true;
             }
@@ -31,9 +37,9 @@ public class Room {
         return false;
     }
 
-    public Device getDevice(String deviceName){
-        for(Device device : devices){
-            if(device.getName().equals(deviceName)){
+    public Device getDevice(String deviceName) {
+        for (Device device : devices) {
+            if (device.getName().equals(deviceName)) {
                 devices.remove(device);
                 return device;
             }
@@ -41,37 +47,37 @@ public class Room {
         return null;
     }
 
-    public void turnOnAllDevices(){
-        for(Device device : devices){
+    public void turnOnAllDevices() {
+        for (Device device : devices) {
             device.setState(true);
         }
     }
 
-    public void turnOffAllDevices(){
-        for(Device device : devices){
+    public void turnOffAllDevices() {
+        for (Device device : devices) {
             device.setState(false);
         }
     }
 
-    public boolean turnOnForName(String deviceName){
-        if(deviceName==null){
+    public boolean turnOnForName(String deviceName) {
+        if (deviceName == null) {
             return false;
         }
-        for(Device device: devices){
-            if(device.getName().equals(deviceName)){
-            device.setState(true);
-            return true;
+        for (Device device : devices) {
+            if (device.getName().equals(deviceName)) {
+                device.setState(true);
+                return true;
+            }
         }
-    }
-    return false;
+        return false;
     }
 
-    public boolean turnOffForName(String deviceName){
-        if(deviceName==null){
+    public boolean turnOffForName(String deviceName) {
+        if (deviceName == null) {
             return false;
         }
-        for(Device device : devices){
-            if(device.getName().equals(deviceName)){
+        for (Device device : devices) {
+            if (device.getName().equals(deviceName)) {
                 device.setState(false);
                 return true;
             }
@@ -87,7 +93,6 @@ public class Room {
         }
         return result;
     }
-
 
 
 }

@@ -1,4 +1,4 @@
-public class Light extends Device{
+public class Light extends Device {
     int maxBrightness;
 
     public Light(String name, boolean state, int maxBrightness) {
@@ -8,17 +8,17 @@ public class Light extends Device{
         this.maxBrightness = maxBrightness;
     }
 
-    public int getMaxBrightness(){
+    public int getMaxBrightness() {
         return maxBrightness;
     }
 
-    public void setMaxBrightness(int maxBrightness){
+    public void setMaxBrightness(int maxBrightness) {
         this.maxBrightness = maxBrightness;
     }
 
     //on off
     @Override
-    public void setState(boolean state){
+    public void setState(boolean state) {
         super.setState(state);
     }
 

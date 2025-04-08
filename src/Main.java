@@ -15,7 +15,7 @@ public class Main {
             try {
                 System.out.println("\n======================================");
                 System.out.println("------- Home Management System -------");
-                System.out.println("1. Add a new room\n2. Remove a room\n3. Show a room (search by name)\n4. Manage devices in a room\n5. Exit program");
+                System.out.println("1. Add a new room\n2. Remove a room\n3. Show a room (search by name)\n4. Manage devices in a room\n5. Show all room\n6. Exit program");
                 System.out.print("Select an option: ");
 
                 option = scanner.nextInt();
@@ -41,11 +41,12 @@ public class Main {
                         if (manager.removeRoom(rm)) {
                             System.out.println("Room removed successfully!");
                         } else {
-                            System.out.println("Error! Room not found.");
+                            System.out.println("Error! Room not found or there aren't rooms with the corresponding name.");
                         }
                         break;
 
                     case 3:
+                        System.out.println("\n" + manager.toString());
                         System.out.print("\nEnter the name of the room to show: ");
                         name = scanner.nextLine();
                         Room foundRoom = manager.getRoom(name);
@@ -57,6 +58,7 @@ public class Main {
                         break;
 
                     case 4:
+                        System.out.println("\n" + manager.toString());
                         System.out.print("\nEnter the room name to manage devices: ");
                         String roomName = scanner.nextLine();
                         Room currentRoom = manager.getRoom(roomName);
@@ -113,7 +115,7 @@ public class Main {
                                         if (manager.addDevice(roomName, newDevice)) {
                                             System.out.println("Device added successfully!");
                                         } else {
-                                            System.out.println("Failed to add device!");
+                                            System.out.println("Failed to add device, you can't add a new device named the same as another one!");
                                         }
                                     }
                                     break;
@@ -201,8 +203,10 @@ public class Main {
                             }
                         }
                         break;
-
                     case 5:
+                        System.out.println(manager.toString());
+                        break;
+                    case 6:
                         x = false;
                         System.out.println("Exiting program...");
                         break;
@@ -222,7 +226,7 @@ public class Main {
                 System.out.println("An unexpected error occurred: " + e.toString());
                 scanner.nextLine();
                 logger.log("Unexpected Exception: " + e.toString());
-                e.printStackTrace(); // stampa la traccia dettaglaita del percorso dell'errore
+                e.printStackTrace();
             }
         }
     }

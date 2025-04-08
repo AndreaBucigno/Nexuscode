@@ -19,7 +19,7 @@ public class Temperature extends Device {
     }
 
     private int generateTemperature() {
-        int temperature = random.nextInt(37)+ 1;
+        int temperature = random.nextInt(37) + 1;
 
         if (temperature > 29) {
             System.out.println("It's too hot in the room. Turning on the air conditioning.");
