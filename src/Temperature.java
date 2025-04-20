@@ -34,10 +34,8 @@ public class Temperature extends Device {
 
     @Override
     public String toString() {
-        return "Temperature>" +
-                "name:" + getName() +
-                ", state:" + isState() +
-                ", temperature:" + temperature + "°C";
+        return "Device name: " + getName() + "\t| state: " + isState() +
+                "\t| type: Temperature\t| temperature: " + temperature + "°C";
     }
 
 }

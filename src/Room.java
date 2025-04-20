@@ -17,20 +17,21 @@ public class Room {
     }
 
 
-    public boolean addDevice(Device obj) {
+    public boolean addDevice(Device temp) {
         for (Device device : devices) {
-            if (device.getName().equals(obj.getName())) {
+            if (device.getName().equals(temp.getName())) {
                 return false;
             }
         }
-        devices.add(obj);
+        devices.add(temp);
         return true;
     }
 
     public boolean removeDevice(String deviceName) {
-        for (Device device : devices) {
+        for (int i = 0; i < devices.size(); i++) {
+            Device device = devices.get(i);
             if (device.getName().equals(deviceName)) {
-                devices.remove(device);
+                devices.remove(i);
                 return true;
             }
         }
@@ -40,7 +41,6 @@ public class Room {
     public Device getDevice(String deviceName) {
         for (Device device : devices) {
             if (device.getName().equals(deviceName)) {
-                devices.remove(device);
                 return device;
             }
         }
@@ -93,10 +93,4 @@ public class Room {
         }
         return result;
     }
-
-
 }
-
-
-
-

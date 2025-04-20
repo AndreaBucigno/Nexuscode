@@ -41,5 +41,12 @@ public class Voc extends Device {
     public void setState(boolean state) {
         super.setState(state);
     }
+
+    @Override
+    public String toString() {
+        return "Device name: " + getName() + "\t| state: " + isState() +
+                "\t| type: Voc\t| Air Quality: " + airQuality + "\t|PPM :" + ppm;
+    }
+
 }
 

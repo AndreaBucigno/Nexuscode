@@ -40,12 +40,10 @@ public class HouseManager {
             return false;
         }
         Room room = getRoom(roomName);
-        if (room.addDevice(device)) {
-            room.addDevice(device);
-            return true;
-        } else {
-            return false;
+        if (room != null) {
+            return room.addDevice(device);
         }
+        return false;
     }
 
     public boolean removeDevice(String roomName, String deviceName) {
@@ -80,6 +78,4 @@ public class HouseManager {
 
         return result;
     }
-
-
 }

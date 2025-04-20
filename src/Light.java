@@ -22,5 +22,10 @@ public class Light extends Device {
         super.setState(state);
     }
 
+    @Override
+    public String toString() {
+        return "Device name: " + getName() + "\t| state: " + isState() +
+                "\t| type: Light\t| max brightness: " + maxBrightness;
+    }
 
 }

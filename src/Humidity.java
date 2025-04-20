@@ -28,4 +28,10 @@ public class Humidity extends Device {
 
         return humidity;
     }
+
+    @Override
+    public String toString() {
+        return "Device name: " + getName() + "\t| state: " + isState() +
+                "\t| type: Humidity\t| humidity Percentage: " + humidityPercentage;
+    }
 }
