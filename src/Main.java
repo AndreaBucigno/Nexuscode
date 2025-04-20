@@ -15,9 +15,7 @@ public class Main {
             try {
                 System.out.println("\n======================================");
                 System.out.println("------- Home Management System -------");
-                System.out.println("1. Add a new room\n2. Remove a room\n3. Show a room (search by name)\n4. Manage devices in a room\n5. Show all room\n6. Exit program");
-                System.out.print("Select an option: ");
-
+                mainMenu();
                 option = scanner.nextInt();
                 scanner.nextLine();
 
@@ -70,7 +68,7 @@ public class Main {
                         y = true;
                         while (y) {
                             System.out.println("\n--- Device Management: " + roomName + " ---");
-                            System.out.println("1. Add a device\n2. Remove a device\n3. Turn on a device\n4. Turn off a device\n5. Turn on all devices\n6. Turn off all devices\n7. Show all devices\n8. Device-specific operations\n9. Back to main Menu.");
+                            deviceMenu();
                             op2 = scanner.nextInt();
                             scanner.nextLine();
 
@@ -229,5 +227,36 @@ public class Main {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void mainMenu(){
+        System.out.println("╔════════════════════════════════════════════╗");
+        System.out.println("║                   MENU                     ║");
+        System.out.println("╣════════════════════════════════════════════╣");
+        System.out.println("║  •[1] Add a new Room                       ║");
+        System.out.println("║  •[2] Remove a Room                        ║");
+        System.out.println("║  •[3] Show a Room  (by name)               ║");
+        System.out.println("║  •[4] Menage a device in a specific Room   ║");
+        System.out.println("║  •[5] Show all Room                        ║");
+        System.out.println("║  •[6] Exit program                         ║");
+        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("\n Enter the option:");
+    }
+
+    public static void deviceMenu(){
+        System.out.println("╔════════════════════════════════════════════╗");
+        System.out.println("║                   MENU                     ║");
+        System.out.println("╣════════════════════════════════════════════╣");
+        System.out.println("║  •[1] Add a device                         ║");
+        System.out.println("║  •[2] Remove a device                      ║");
+        System.out.println("║  •[3] Turn on a device  (by name)          ║");
+        System.out.println("║  •[4] Turn off a device (by name)          ║");
+        System.out.println("║  •[5] Turn on all devices                  ║");
+        System.out.println("║  •[6] Turn off all devices                 ║");
+        System.out.println("║  •[7] Show all devices                     ║");
+        System.out.println("║  •[8] Device-specific operations           ║");
+        System.out.println("║  •[9] Back to the main Menu                ║");
+        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("\n Enter the option:");
     }
 }
