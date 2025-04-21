@@ -85,6 +85,10 @@ public class Room {
         return false;
     }
 
+    public int getNumberOfDevice(){
+        return devices.size();
+    }
+
     @Override
     public String toString() {
         String result = "Room: " + roomName + "\nDevices:\n";

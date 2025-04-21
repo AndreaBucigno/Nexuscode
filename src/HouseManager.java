@@ -68,6 +68,10 @@ public class HouseManager {
         }
     }
 
+    public int getNumberOfRoom(){
+        return rooms.size();
+    }
+
 
     @Override
     public String toString() {

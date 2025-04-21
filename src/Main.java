@@ -53,6 +53,10 @@ public class Main {
                 return true;
 
             case 2:
+                if (manager.getNumberOfRoom() == 0){
+                    System.out.println("Error! There are no rooms in the house, create at least one to remove it.");
+                    return true;
+                }
                 System.out.println("\nCurrent rooms:");
                 System.out.println(manager.toString());
                 System.out.print("Enter the name of the room to remove: ");
@@ -175,6 +179,10 @@ public class Main {
 
 
             case 2:
+                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                    System.out.println("Error! There are no device in the room, create at least one to remove it.");
+                    return true;
+                }
                 System.out.print("\nEnter device name to remove: ");
                 String deviceToRemove = scanner.nextLine();
                 if (manager.removeDevice(roomName, deviceToRemove)) {
@@ -185,6 +193,10 @@ public class Main {
                 return true;
 
             case 3:
+                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                    System.out.println("Error! There are no deivices in the house, create at least one to use it.");
+                    return true;
+                }
                 System.out.print("\nEnter device name to turn on: ");
                 String deviceToTurnOn = scanner.nextLine();
                 if (currentRoom.turnOnForName(deviceToTurnOn)) {
@@ -201,6 +213,10 @@ public class Main {
                 return true;
 
             case 4:
+                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                    System.out.println("Error! There are no deivices in the house, create at least one to use it.");
+                    return true;
+                }
                 System.out.print("\nEnter device name to turn off: ");
                 String deviceToTurnOff = scanner.nextLine();
                 if (currentRoom.turnOffForName(deviceToTurnOff)) {
@@ -211,11 +227,19 @@ public class Main {
                 return true;
 
             case 5:
+                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                    System.out.println("Error! There are no deivices in the house, create at least one to use it.");
+                    return true;
+                }
                 currentRoom.turnOnAllDevices();
                 System.out.println("All devices turned on!");
                 return true;
 
             case 6:
+                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                    System.out.println("Error! There are no device in the room.");
+                    return true;
+                }
                 currentRoom.turnOffAllDevices();
                 System.out.println("All devices turned off!");
                 return true;
