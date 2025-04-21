@@ -10,6 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         HouseManager manager = new HouseManager();
         SingletonErrorLogger logger = SingletonErrorLogger.getInstance();
+        Errorlogv2 loggerv2 = Errorlogv2.getInstance();
 
         while (x) {
             try {
@@ -18,7 +19,7 @@ public class Main {
                 mainMenu();
                 option = scanner.nextInt();
                 scanner.nextLine();
-                x = handlerMainMenu(option, scanner, manager, logger);
+                x = handlerMainMenu(option, scanner, manager, logger,loggerv2);
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
@@ -39,7 +40,7 @@ public class Main {
     }
 
 
-    public static boolean handlerMainMenu(int option, Scanner scanner, HouseManager manager, SingletonErrorLogger logger) {
+    public static boolean handlerMainMenu(int option, Scanner scanner, HouseManager manager, SingletonErrorLogger logger, Errorlogv2 loggerv2) {
         switch (option) {
             case 1:
                 System.out.print("\nEnter the room name: ");
@@ -48,13 +49,16 @@ public class Main {
                 if (manager.addRoom(room)) {
                     System.out.println("Room added successfully!");
                 } else {
+                    loggerv2.setLogFile2("Error! A room with that name already exists.");
                     System.out.println("Error! A room with that name already exists.");
                 }
                 return true;
 
             case 2:
-                if (manager.getNumberOfRoom() == 0){
+                if (manager.getNumberOfRoom() == 0) {
+                    loggerv2.setLogFile2("Error! There are no rooms in the house, create at least one to remove it.");
                     System.out.println("Error! There are no rooms in the house, create at least one to remove it.");
+
                     return true;
                 }
                 System.out.println("\nCurrent rooms:");
@@ -64,6 +68,7 @@ public class Main {
                 if (manager.removeRoom(rm)) {
                     System.out.println("Room removed successfully!");
                 } else {
+                    loggerv2.setLogFile2("Error! Room not found or there aren't rooms with the corresponding name.");
                     System.out.println("Error! Room not found or there aren't rooms with the corresponding name.");
                 }
                 return true;
@@ -76,6 +81,7 @@ public class Main {
                 if (foundRoom != null) {
                     System.out.println(foundRoom.toString());
                 } else {
+                    loggerv2.setLogFile2("Error! Room not found.");
                     System.out.println("Error! Room not found.");
                 }
                 return true;
@@ -86,6 +92,7 @@ public class Main {
                 String roomName = scanner.nextLine();
                 Room currentRoom = manager.getRoom(roomName);
                 if (currentRoom == null) {
+                    loggerv2.setLogFile2("Error! Room not found.");
                     System.out.println("Room not found!");
                     return true;
                 }
@@ -98,7 +105,11 @@ public class Main {
                 return true;
 
             case 6:
-                System.out.println("Exiting program...");
+                clear();
+                return true;
+
+            case 7:
+                System.out.println("Exit......");
                 return false;
 
             default:
@@ -179,7 +190,7 @@ public class Main {
 
 
             case 2:
-                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                if (manager.getRoom(roomName).getNumberOfDevice() == 0) {
                     System.out.println("Error! There are no device in the room, create at least one to remove it.");
                     return true;
                 }
@@ -193,7 +204,7 @@ public class Main {
                 return true;
 
             case 3:
-                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                if (manager.getRoom(roomName).getNumberOfDevice() == 0) {
                     System.out.println("Error! There are no deivices in the house, create at least one to use it.");
                     return true;
                 }
@@ -213,7 +224,7 @@ public class Main {
                 return true;
 
             case 4:
-                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                if (manager.getRoom(roomName).getNumberOfDevice() == 0) {
                     System.out.println("Error! There are no deivices in the house, create at least one to use it.");
                     return true;
                 }
@@ -227,7 +238,7 @@ public class Main {
                 return true;
 
             case 5:
-                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                if (manager.getRoom(roomName).getNumberOfDevice() == 0) {
                     System.out.println("Error! There are no deivices in the house, create at least one to use it.");
                     return true;
                 }
@@ -236,7 +247,7 @@ public class Main {
                 return true;
 
             case 6:
-                if(manager.getRoom(roomName).getNumberOfDevice() == 0){
+                if (manager.getRoom(roomName).getNumberOfDevice() == 0) {
                     System.out.println("Error! There are no device in the room.");
                     return true;
                 }
@@ -269,8 +280,8 @@ public class Main {
                     System.out.println("Air Quality: " + voc.getAirQuality());
                 } else if (specDev instanceof Temperature temperature) {
                     System.out.println("Temperature in the Room: " + temperature.getTemperature());
-                } else if (specDev instanceof  Humidity humidity) {
-                    System.out.println("Humidity percentage in the Room: "+ humidity.getHumidityPercentage());
+                } else if (specDev instanceof Humidity humidity) {
+                    System.out.println("Humidity percentage in the Room: " + humidity.getHumidityPercentage());
                 } else {
                     System.out.println("No special operations available for this device type.");
                 }
