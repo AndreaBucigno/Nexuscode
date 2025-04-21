@@ -39,7 +39,7 @@ public class Main {
     }
 
 
-    public static boolean handlerMainMenu(int option, Scanner scanner, HouseManager manager, SingletonErrorLogger logger){
+    public static boolean handlerMainMenu(int option, Scanner scanner, HouseManager manager, SingletonErrorLogger logger) {
         switch (option) {
             case 1:
                 System.out.print("\nEnter the room name: ");
@@ -103,7 +103,7 @@ public class Main {
         }
     }
 
-    public static void handlerDeviceMenu(Scanner scanner, HouseManager manager, String roomName, Room currentRoom, SingletonErrorLogger logger){
+    public static void handlerDeviceMenu(Scanner scanner, HouseManager manager, String roomName, Room currentRoom, SingletonErrorLogger logger) {
         boolean y = true;
         int op2;
 
@@ -124,7 +124,7 @@ public class Main {
         }
     }
 
-    public static boolean handlerDeviceOptions(int op2,Scanner scanner,HouseManager manager,String roomName,Room currentRoom){
+    public static boolean handlerDeviceOptions(int op2, Scanner scanner, HouseManager manager, String roomName, Room currentRoom) {
         switch (op2) {
             case 1:
                 System.out.println("\nSelect device type:");
@@ -158,7 +158,7 @@ public class Main {
                         newDevice = new Voc(deviceName, initialState);
                         break;
                     case 5:
-                        newDevice = new Device(deviceName,initialState);
+                        newDevice = new Device(deviceName, initialState);
                     default:
                         System.out.println("Invalid device type!");
                         break;
@@ -243,6 +243,10 @@ public class Main {
                 } else if (specDev instanceof Voc voc) {
                     System.out.println("Current PPM: " + voc.getPpm());
                     System.out.println("Air Quality: " + voc.getAirQuality());
+                } else if (specDev instanceof Temperature temperature) {
+                    System.out.println("Temperature in the Room: " + temperature.getTemperature());
+                } else if (specDev instanceof  Humidity humidity) {
+                    System.out.println("Humidity percentage in the Room: "+ humidity.getHumidityPercentage());
                 } else {
                     System.out.println("No special operations available for this device type.");
                 }
@@ -296,7 +300,7 @@ public class Main {
     }
 
 
-    public static void typeOfDeviceMenu(){
+    public static void typeOfDeviceMenu() {
         System.out.println("╔════════════════════════════════════════════╗");
         System.out.println("║                   MENU                     ║");
         System.out.println("╣════════════════════════════════════════════╣");
