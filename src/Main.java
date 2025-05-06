@@ -105,10 +105,16 @@ public class Main {
                 return true;
 
             case 6:
-                clear();
                 return true;
 
             case 7:
+                return true;
+
+            case 8:
+                clear();
+                return true;
+
+            case 9:
                 System.out.println("Exit......");
                 return false;
 
@@ -303,17 +309,19 @@ public class Main {
     }
 
     public static void mainMenu() {
-        System.out.println("╔════════════════════════════════════════════╗");
-        System.out.println("║                   MENU                     ║");
-        System.out.println("╣════════════════════════════════════════════╣");
-        System.out.println("║  •[1] Add a new Room                       ║");
-        System.out.println("║  •[2] Remove a Room                        ║");
-        System.out.println("║  •[3] Show a Room  (by name)               ║");
-        System.out.println("║  •[4] Menage a device in a specific Room   ║");
-        System.out.println("║  •[5] Show all Room                        ║");
-        System.out.println("║  •[6] Clear the screen                     ║");
-        System.out.println("║  •[7] Exit program                         ║");
-        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("╔══════════════════════════════════════════════╗");
+        System.out.println("║                     MENU                     ║");
+        System.out.println("╣══════════════════════════════════════════════╣");
+        System.out.println("║  •[1] Add a new Room                         ║");
+        System.out.println("║  •[2] Remove a Room                          ║");
+        System.out.println("║  •[3] Show a Room  (by name)                 ║");
+        System.out.println("║  •[4] Menage a device in a specific Room     ║");
+        System.out.println("║  •[5] Show all Room                          ║");
+        System.out.println("║  •[6] Save the configuration on a File Gson  ║");
+        System.out.println("║  •[7] Load a configuration from the file Gson║");
+        System.out.println("║  •[8] Clear the screen                       ║");
+        System.out.println("║  •[9] Exit program                           ║");
+        System.out.println("╚══════════════════════════════════════════════╝");
         System.out.println("\n Enter the option:");
     }
 
