@@ -105,6 +105,7 @@ public class Main {
                 return true;
 
             case 6:
+                //save
                 if (HandlerGson.saveHouseConfiguration(manager)) {
                     System.out.println("Configuration saved successfully!");
                 } else {
@@ -114,6 +115,7 @@ public class Main {
                 return true;
 
             case 7:
+                //load
                 try {
                     HouseManager tempManger = HandlerGson.loadConfiguration();
                     if (tempManger != null) {
