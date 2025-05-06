@@ -4,7 +4,7 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 
 public class HandlerGson {
-    private static final String FileHouseConfiguration = "File_House_Configuration.gson";
+    private static final String FileHouseConfiguration = "File_House_Configuration.json";
     private static final Gson fileGson = new GsonBuilder().setPrettyPrinting().create();
 
     public static boolean saveHouseConfiguration(HouseManager manager) {
@@ -22,11 +22,12 @@ public class HandlerGson {
 
     public static HouseManager loadConfiguration() {
         try (Reader reader = new FileReader(FileHouseConfiguration)) {
-            HouseManager manager = new HouseManager(reader,HouseManager.class);
+            HouseManager manager = fileGson.fromJson(reader, HouseManager.class);
+            return manager;
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            return new HouseManager();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return new HouseManager();
         }
     }
 

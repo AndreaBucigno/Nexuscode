@@ -19,7 +19,7 @@ public class Main {
                 mainMenu();
                 option = scanner.nextInt();
                 scanner.nextLine();
-                x = handlerMainMenu(option, scanner, manager, logger,loggerv2);
+                x = handlerMainMenu(option, scanner, manager, logger, loggerv2);
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
@@ -105,9 +105,28 @@ public class Main {
                 return true;
 
             case 6:
+                if (HandlerGson.saveHouseConfiguration(manager)) {
+                    System.out.println("Configuration saved successfully!");
+                } else {
+                    System.out.println("Failed to save configuration!");
+                    loggerv2.setLogFile2("Error saving house configuration.");
+                }
                 return true;
 
             case 7:
+                try {
+                    HouseManager tempManger = HandlerGson.loadConfiguration();
+                    if (tempManger != null) {
+                        manager = tempManger;
+                        System.out.println("Configuration loaded successfully!");
+                    } else {
+                        System.out.println("Failed to load configuration!");
+                        loggerv2.setLogFile2("Error loading house configuration.");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error loading configuration: " + e.getMessage());
+                    logger.log("Exception while loading configuration: " + e.toString());
+                }
                 return true;
 
             case 8:
