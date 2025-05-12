@@ -115,11 +115,11 @@ public class Main {
                 return true;
 
             case 7:
-                //load
                 try {
-                    HouseManager tempManger = HandlerGson.loadConfiguration();
-                    if (tempManger != null) {
-                        manager = tempManger;
+                    HouseManager loadedManager = HandlerGson.loadConfiguration();
+                    if (loadedManager != null) {
+                        // Sostituisci il contenuto del manager esistente
+                        manager = loadedManager; // Questa è la modifica chiave
                         System.out.println("Configuration loaded successfully!");
                     } else {
                         System.out.println("Failed to load configuration!");

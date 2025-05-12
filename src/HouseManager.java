@@ -4,6 +4,11 @@ import java.util.Hashtable;
 public class HouseManager {
     private Hashtable<String, Room> rooms = new Hashtable<>();
 
+
+    public Hashtable<String, Room> getRooms() {
+        return rooms;
+    }
+
     public boolean addRoom(Room t) {
         if (t == null || t.getRoomName() == null) {
             return false;
