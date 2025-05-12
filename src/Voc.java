@@ -3,7 +3,7 @@ import java.util.Random;
 public class Voc extends Device {
     private String airQuality;
     private double ppm;
-    private Random random;
+    public Random random;
 
     public Voc(String name, boolean state) {
         super(name, state);

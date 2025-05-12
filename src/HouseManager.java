@@ -9,6 +9,14 @@ public class HouseManager {
         return rooms;
     }
 
+    public void setRooms(Hashtable<String, Room> rooms) {
+        if (rooms != null) {
+            this.rooms = rooms;
+        } else {
+            this.rooms = new Hashtable<>();
+        }
+    }
+
     public boolean addRoom(Room t) {
         if (t == null || t.getRoomName() == null) {
             return false;

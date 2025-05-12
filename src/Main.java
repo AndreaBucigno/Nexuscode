@@ -117,20 +117,24 @@ public class Main {
             case 7:
                 try {
                     HouseManager loadedManager = HandlerGson.loadConfiguration();
-                    if (loadedManager != null) {
-                        // Sostituisci il contenuto del manager esistente
-                        manager = loadedManager; // Questa è la modifica chiave
+                    if (loadedManager != null && loadedManager.getRooms() != null) {
+
+                        //Sostituzione del HashTable attuale con quella presa dal file json
+                        manager.setRooms(loadedManager.getRooms());
+
                         System.out.println("Configuration loaded successfully!");
+                        System.out.println("Loaded rooms: " + manager.getNumberOfRoom());
+                        System.out.println(manager.toString());
                     } else {
-                        System.out.println("Failed to load configuration!");
-                        loggerv2.setLogFile2("Error loading house configuration.");
+                        System.out.println("No configuration found or empty configuration loaded.");
+                        loggerv2.setLogFile2("Info: No configuration found or empty configuration loaded.");
                     }
                 } catch (Exception e) {
                     System.out.println("Error loading configuration: " + e.getMessage());
                     logger.log("Exception while loading configuration: " + e.toString());
+                    loggerv2.setLogFile2("Error loading configuration: " + e.getMessage());
                 }
                 return true;
-
             case 8:
                 clear();
                 return true;
