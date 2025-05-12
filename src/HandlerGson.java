@@ -5,7 +5,7 @@ import java.io.*;
 
 public class HandlerGson {
     private static final String FileHouseConfiguration = "File_House_Configuration.json";
-    private static final Gson fileGson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson fileGson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 
     public static boolean saveHouseConfiguration(HouseManager manager) {
         if (manager == null) {
