@@ -340,10 +340,10 @@ public class Main {
         System.out.println("║  •[1] Add a new Room                         ║");
         System.out.println("║  •[2] Remove a Room                          ║");
         System.out.println("║  •[3] Show a Room  (by name)                 ║");
-        System.out.println("║  •[4] Menage a device in a specific Room     ║");
+        System.out.println("║  •[4] Manage a device in a specific Room     ║");
         System.out.println("║  •[5] Show all Room                          ║");
-        System.out.println("║  •[6] Save the configuration on a File Gson  ║");
-        System.out.println("║  •[7] Load a configuration from the file Gson║");
+        System.out.println("║  •[6] Save the configuration on a File Json  ║");
+        System.out.println("║  •[7] Load a configuration from the file Json║");
         System.out.println("║  •[8] Clear the screen                       ║");
         System.out.println("║  •[9] Exit program                           ║");
         System.out.println("╚══════════════════════════════════════════════╝");
